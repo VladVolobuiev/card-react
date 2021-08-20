@@ -7,6 +7,7 @@ import {
   initializedPriceForTwo,
   initializedPriceForFamily,
 } from './Redux/card-reducer';
+import Server from './ajax';
 
 type PropsType = {
   priceForOne: number;
@@ -80,6 +81,7 @@ const App: React.FC<PropsType> = ({
           </footer>
         </aside>
       </div>
+      <Server />
     </div>
   );
 };
