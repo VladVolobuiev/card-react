@@ -1,19 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import './App.css';
 import { PrimeStateType } from './Redux/redux-store';
 import {
   initializedPriceForOne,
-  initializedPriceForFamily,
   initializedPriceForTwo,
+  initializedPriceForFamily,
 } from './Redux/card-reducer';
-import { useEffect, useState } from 'react';
 
 type PropsType = {
   priceForOne: number;
   priceForTwo: number;
   priceForFamily: number;
   initializedPriceForOne: (priceForOne: number) => void;
+  initializedPriceForTwo: (priceForTwo: number) => void;
+  initializedPriceForFamily: (priceForFamily: number) => void;
 };
 
 const App: React.FC<PropsType> = ({
@@ -21,17 +22,15 @@ const App: React.FC<PropsType> = ({
   priceForTwo,
   priceForFamily,
 }) => {
+  const dispatch = useDispatch();
   const bookingOne = () => {
-    initializedPriceForOne(priceForOne + 2);
-    console.log(priceForOne + 2);
+    dispatch(initializedPriceForOne(priceForOne + 2));
   };
   const bookingTwo = () => {
-    initializedPriceForOne(priceForOne + 2);
-    console.log(priceForTwo + 2);
+    dispatch(initializedPriceForTwo(priceForTwo + 2));
   };
   const bookingFamily = () => {
-    initializedPriceForOne(priceForOne + 2);
-    console.log(priceForFamily + 2);
+    dispatch(initializedPriceForFamily(priceForFamily + 2));
   };
 
   return (

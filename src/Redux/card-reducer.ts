@@ -1,3 +1,5 @@
+import { InferActionsTypes } from './redux-store';
+
 let initialState = {
   priceForOne: 5,
   priceForTwo: 15,
@@ -26,6 +28,24 @@ const cardReducer = (state = initialState, action: any): InitialStateType => {
       return state;
   }
 };
+// type ActionsType = InferActionsTypes<typeof actions>;
+// export const actions = {
+//   initializedPriceForOne: (priceForOne: number) =>
+//     ({
+//       type: 'INITIALIZED_ONE',
+//       priceForOne,
+//     } as const),
+//   initializedPriceForTwo: (priceForTwo: number) =>
+//     ({
+//       type: 'INITIALIZED_TWO',
+//       priceForTwo,
+//     } as const),
+//   initializedPriceForFamily: (priceForFamily: number) =>
+//     ({
+//       type: 'INITIALIZED_FAMILY',
+//       priceForFamily,
+//     } as const),
+// };
 
 export const initializedPriceForOne = (priceForOne: number) =>
   ({
